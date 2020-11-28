@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+#include "mediapipe/framework/calculator_framework.h"
+#include "mediapipe/framework/formats/image_format.pb.h"
+#include "mediapipe/framework/formats/image_frame.h"
+#include "mediapipe/framework/formats/image_frame_opencv.h"
+#include "mediapipe/framework/formats/video_stream_header.h"
+#include "mediapipe/framework/port/opencv_imgproc_inc.h"
+#include "mediapipe/framework/port/opencv_video_inc.h"
+#include "mediapipe/framework/port/status.h"
+#include "mediapipe/framework/tool/status_util.h"
+
+namespace mediapope {
+class OpenCvVideoDecoderCalculator : public CalculatorBase {
+ public:
+  static ::mediapipe::Status GetContract(CalculatorContract* cc) { cc }
+}
+}  // namespace mediapope

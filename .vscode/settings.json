@@ -1,0 +1,5 @@
+{
+    "bazel.buildifierExecutable": "/home/shadowleaf/go/bin/buildifier",
+    "bazel.executable": "/usr/local/bazel/3.4.0/lib/bazel/bin/bazel",
+    "bazel.buildifierFixOnFormat": true
+}

@@ -23,28 +23,28 @@ cc_library(
     name = "glog",
     visibility = ["//visibility:public"],
     deps = select({
-        "//mediapipe:android_x86": [
+        "@mediapipe:android_x86": [
             "@com_github_glog_glog_no_gflags//:glog",
         ],
-        "//mediapipe:android_x86_64": [
+        "@mediapipe:android_x86_64": [
             "@com_github_glog_glog_no_gflags//:glog",
         ],
-        "//mediapipe:android_armeabi": [
+        "@mediapipe:android_armeabi": [
             "@com_github_glog_glog_no_gflags//:glog",
         ],
-        "//mediapipe:android_arm": [
+        "@mediapipe:android_arm": [
             "@com_github_glog_glog_no_gflags//:glog",
         ],
-        "//mediapipe:android_arm64": [
+        "@mediapipe:android_arm64": [
             "@com_github_glog_glog_no_gflags//:glog",
         ],
-        "//mediapipe:ios": [
+        "@mediapipe:ios": [
             "@com_github_glog_glog_no_gflags//:glog",
         ],
-        "//mediapipe:macos": [
+        "@mediapipe:macos": [
             "@com_github_glog_glog//:glog",
         ],
-        "//mediapipe:windows": [
+        "@mediapipe:windows": [
             "@com_github_glog_glog//:glog",
         ],
         "//conditions:default": [
@@ -112,8 +112,8 @@ cmake_external(
         "WITH_WEBP": "OFF",
         # When building tests, by default Bazel builds them in dynamic mode.
         # See https://docs.bazel.build/versions/master/be/c-cpp.html#cc_binary.linkstatic
-        # For example, when building //mediapipe/calculators/video:opencv_video_encoder_calculator_test,
-        # the dependency //mediapipe/framework/formats:image_frame_opencv will
+        # For example, when building @mediapipe/calculators/video:opencv_video_encoder_calculator_test,
+        # the dependency @mediapipe/framework/formats:image_frame_opencv will
         # be built as a shared library, which depends on a cv::Mat constructor,
         # and expects it to be provided by the main exacutable. The main
         # executable depends on libimage_frame_opencv.so and links in
@@ -178,14 +178,14 @@ cmake_external(
 alias(
     name = "opencv_binary",
     actual = select({
-        "//mediapipe:android_x86": "@android_opencv//:libopencv_x86",
-        "//mediapipe:android_x86_64": "@android_opencv//:libopencv_x86_64",
-        "//mediapipe:android_armeabi": "@android_opencv//:libopencv_armeabi-v7a",
-        "//mediapipe:android_arm": "@android_opencv//:libopencv_armeabi-v7a",
-        "//mediapipe:android_arm64": "@android_opencv//:libopencv_arm64-v8a",
-        "//mediapipe:ios": "@ios_opencv//:opencv",
-        "//mediapipe:macos": "@macos_opencv//:opencv",
-        "//mediapipe:windows": "@windows_opencv//:opencv",
+        "@mediapipe:android_x86": "@android_opencv//:libopencv_x86",
+        "@mediapipe:android_x86_64": "@android_opencv//:libopencv_x86_64",
+        "@mediapipe:android_armeabi": "@android_opencv//:libopencv_armeabi-v7a",
+        "@mediapipe:android_arm": "@android_opencv//:libopencv_armeabi-v7a",
+        "@mediapipe:android_arm64": "@android_opencv//:libopencv_arm64-v8a",
+        "@mediapipe:ios": "@ios_opencv//:opencv",
+        "@mediapipe:macos": "@macos_opencv//:opencv",
+        "@mediapipe:windows": "@windows_opencv//:opencv",
         "//conditions:default": "@linux_opencv//:opencv",
     }),
 )
@@ -194,13 +194,13 @@ cc_library(
     name = "libffmpeg",
     visibility = ["//visibility:public"],
     deps = select({
-        "//mediapipe:android_x86": [],
-        "//mediapipe:android_x86_64": [],
-        "//mediapipe:android_armeabi": [],
-        "//mediapipe:android_arm": [],
-        "//mediapipe:android_arm64": [],
-        "//mediapipe:ios": [],
-        "//mediapipe:macos": [
+        "@mediapipe:android_x86": [],
+        "@mediapipe:android_x86_64": [],
+        "@mediapipe:android_armeabi": [],
+        "@mediapipe:android_arm": [],
+        "@mediapipe:android_arm64": [],
+        "@mediapipe:ios": [],
+        "@mediapipe:macos": [
             "@macos_ffmpeg//:libffmpeg",
         ],
         "//conditions:default": [

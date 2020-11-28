@@ -1,0 +1,5 @@
+bazel-bin
+bazel-mediapipe
+bazel-out
+bazel-testlogs
+bazel-01-video-decoder
