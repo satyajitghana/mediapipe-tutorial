@@ -1,4 +1,4 @@
-load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+load("@rules_cc//cc:defs.bzl", "cc_binary")
 
 package(
     default_visibility = ["//videodecoder:internal"],
@@ -15,4 +15,19 @@ cc_binary(
     name = "videodecoder",
     srcs = ["main.cc"],
     visibility = ["//visibility:public"],
+    deps = [
+        "@mediapipe//mediapipe/framework:calculator_framework",
+        "@mediapipe//mediapipe/framework/formats:image_format_cc_proto",
+        "@mediapipe//mediapipe/framework/formats:image_frame",
+        "@mediapipe//mediapipe/framework/formats:image_frame_opencv",
+        "@mediapipe//mediapipe/framework/formats:video_stream_header",
+        "@mediapipe//mediapipe/framework/port:logging",
+        "@mediapipe//mediapipe/framework/port:opencv_highgui",
+        "@mediapipe//mediapipe/framework/port:opencv_imgproc",
+        "@mediapipe//mediapipe/framework/port:opencv_video",
+        "@mediapipe//mediapipe/framework/port:parse_text_proto",
+        "@mediapipe//mediapipe/framework/port:ret_check",
+        "@mediapipe//mediapipe/framework/port:status",
+        "@mediapipe//mediapipe/framework/tool:status_util",
+    ],
 )

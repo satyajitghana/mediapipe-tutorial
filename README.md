@@ -8,10 +8,32 @@ Install OpenCV and Bazel
 $ sudo ./setup-env-wsl2.sh
 ```
 
+Install GStreamer
+
+```shell
+sudo apt install -y libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+```
+
+```shell
+sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+```
+
 Setup OpenCV and modify WORKSPACE file to point to opencv installation
+
+Add this line in cmake command of setup_opencv.sh to build with gstreamer support
+```
+-DWITH_GSTREAMER=ON
+```
 
 ```shell
 $ sudo ./mediapipe/setup_opencv.sh
+```
+
+Install OpenGL
+
+```shell
+$ sudo apt-get install mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev
+$ sudo apt-get install mesa-utils
 ```
 
 If you are building for android then run

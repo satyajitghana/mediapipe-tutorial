@@ -1,6 +1,7 @@
 workspace(name = "videodecoder")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 skylib_version = "0.9.0"
 
@@ -393,3 +394,9 @@ http_archive(
 load("@org_tensorflow//tensorflow:workspace.bzl", "tf_workspace")
 
 tf_workspace(tf_repo_name = "org_tensorflow")
+
+git_repository(
+    name = "mediapipe",
+    commit = "f15da632dec186f2c1d3c780f47086477e2286a9",  #v0.8
+    remote = "https://github.com/google/mediapipe.git",
+)
